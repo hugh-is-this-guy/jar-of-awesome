@@ -10,7 +10,6 @@
   }
 
   function signIn() {
-    console.log("SINGING IN");
     $authPromise = $userbase.signIn({ username, password, rememberMe: 'local' })
       .then((u) => $user = u)
       .catch((e) => console.log(e))
