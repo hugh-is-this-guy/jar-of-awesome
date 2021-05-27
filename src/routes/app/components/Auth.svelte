@@ -4,14 +4,14 @@
   let username, password;
 
   function signUp() {
-    $authPromise = $userbase.signUp({ username, password, rememberMe: 'none' })
+    $authPromise = $userbase.signUp({ username, password, rememberMe: 'local' })
       .then((u) => $user = u)
       .catch((e) => console.log(e))
   }
 
   function signIn() {
     console.log("SINGING IN");
-    $authPromise = $userbase.signIn({ username, password, rememberMe: 'none' })
+    $authPromise = $userbase.signIn({ username, password, rememberMe: 'local' })
       .then((u) => $user = u)
       .catch((e) => console.log(e))
   }

@@ -7,7 +7,7 @@
 	 	$userbase = window.userbase;
 
 		$authPromise = $userbase.init({appId: '3d794443-177f-42ff-83c5-7233f755b132'})
-			.then(({u}) => $user = u)
+			.then((res) => $user = res.user)
 			.catch((e) => console.log(e))
 	})
 </script>
