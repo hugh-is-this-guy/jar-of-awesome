@@ -24,6 +24,9 @@
 </script>
 
 <style>
+  h2 {
+    margin-bottom: 16px;
+  }
 </style>
 
 <h2>Awesomes</h2>

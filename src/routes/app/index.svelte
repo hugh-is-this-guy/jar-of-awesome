@@ -11,6 +11,12 @@
 			.then((res) => $user = res.user)
 			.catch((e) => console.log(e))
 	})
+
+	function signOut() {
+		userbase.signOut()
+			.then(() => $user = {})
+      .catch((e) => console.log(e))
+	}
 </script>
 
 <svelte:head>
@@ -18,12 +24,25 @@
 </svelte:head>
 
 
+<style>
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		margin-bottom: 16px;
+	}
+</style>
+
 {#await $authPromise}
 	<p>Loading...</p>
 
 {:then _}
 	{#if $user}
-		{$user.username}
+		<nav>
+			{$user.username}
+			<button on:click={signOut}>logout</button>
+		</nav>
 		<Jar />
 
 	{:else}
