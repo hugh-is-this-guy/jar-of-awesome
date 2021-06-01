@@ -3,17 +3,15 @@
 
   import { showModal, awesomes } from "../stores.js"
 
-  import New from "./New.svelte"
   import Awesome from "./Awesome.svelte"
+  import Controls from "./Controls.svelte"
+  import Modal from "./Modal.svelte"
 
   let add = false;
 
-  $: odd  = $awesomes.filter((_, i) => i % 2)
-  $: even = $awesomes.filter((_, i) => !(i % 2))
-
-  function showAdd() {
-    $showModal = true
-  }
+  $: ones  = $awesomes.filter((_, i) => (i % 3) === 0)
+  $: twos = $awesomes.filter((_, i) => (i % 3) === 1)
+  $: threes = $awesomes.filter((_, i) => (i % 3) === 2)
 
   function changeHandler(items) {
     $awesomes = items
@@ -27,11 +25,6 @@
 </script>
 
 <style>
-  h2 {
-    text-align: center;
-    margin-bottom: 32px;
-  }
-
   section {
     display: flex;
     flex-direction: row;
@@ -44,36 +37,29 @@
     display: flex;
     flex-direction: column;
 
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-bottom: 16px;
+    padding: 8px;
   }
 </style>
 
-<h2>Your Jar of Awesome</h2>
-
 <section>
   <div class="column">
-    {#each odd as awesome}
+    {#each ones as awesome}
       <Awesome {awesome} />
     {/each}
   </div>
 
   <div class="column">
-    {#each even as awesome}
+    {#each twos as awesome}
+      <Awesome {awesome} />
+    {/each}
+  </div>
+
+  <div class="column">
+    {#each threes as awesome}
       <Awesome {awesome} />
     {/each}
   </div>
 </section>
 
-<div>
-  <button on:click={() => $showModal = !$showModal}>
-    {#if $showModal}
-      -
-    {:else}
-      +
-    {/if}
-  </button>
-
-  <New />
-</div>
+<Controls />
+<Modal />

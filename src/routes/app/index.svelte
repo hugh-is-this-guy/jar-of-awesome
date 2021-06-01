@@ -39,10 +39,6 @@
 
 {:then _}
 	{#if $user}
-		<nav>
-			{$user.username}
-			<button on:click={signOut}>logout</button>
-		</nav>
 		<Jar />
 
 	{:else}
