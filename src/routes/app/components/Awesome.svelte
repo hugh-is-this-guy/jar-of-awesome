@@ -1,4 +1,6 @@
 <script>
+  import { slide } from 'svelte/transition';
+
   import { userbase } from "../stores.js"
 
   export let awesome;
@@ -42,7 +44,7 @@
 <div on:click={() => show = !show}>
   <h3>{awesome.item.title}</h3>
   {#if show}
-    <p>{awesome.item.note}</p>
+    <p transition:slide="{{ duration: 250}}">{awesome.item.note}</p>
   {/if}
   <!-- <button on:click={bin}>🗑</button> -->
 </div>
