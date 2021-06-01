@@ -24,16 +24,6 @@
 </svelte:head>
 
 
-<style>
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-
-		margin-bottom: 16px;
-	}
-</style>
-
 {#await $authPromise}
 	<p>Loading...</p>
 
