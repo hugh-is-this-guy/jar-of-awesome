@@ -1,7 +1,8 @@
 <script>
   import { userbase } from "../stores.js"
 
-  export let awesome
+  export let awesome;
+  export let show = false;
 
   function bin() {
     $userbase.deleteItem({ databaseName: 'awesomes', itemId: awesome.itemId })
@@ -11,24 +12,37 @@
 
 <style>
   div {
-    padding-bottom: 16px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+
+    border: solid 1px black;
   }
 
   h3 {
-    display: inline;
-    padding-right: 8px;
+    font-size: 60px;
+
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 
   p {
     flex-grow: 1;
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 16px;
+    text-align: center;
   }
 </style>
 
-<div>
+<div on:click={() => show = !show}>
   <h3>{awesome.item.title}</h3>
-  <p>{awesome.item.note}</p>
-  <button on:click={bin}>🗑</button>
+  {#if show}
+    <p>{awesome.item.note}</p>
+  {/if}
+  <!-- <button on:click={bin}>🗑</button> -->
 </div>
