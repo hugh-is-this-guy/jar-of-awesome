@@ -14,7 +14,7 @@
   $: threes = $awesomes.filter((_, i) => (i % 3) === 2)
 
   function changeHandler(items) {
-    $awesomes = items
+    $awesomes = items.map((item, i) => { return { ...item, index: i }} )
   }
 
   onMount(() => {
