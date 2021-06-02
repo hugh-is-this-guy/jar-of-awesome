@@ -16,7 +16,8 @@
   $: colour = colours[awesome.index % colours.length]
 
   function bin() {
-    $userbase.deleteItem({ databaseName: 'awesomes', itemId: awesome.itemId })
+    $userbase
+      .deleteItem({ databaseName: 'awesomes', itemId: awesome.itemId })
       .catch((e) => log(e))
   }
 </script>
