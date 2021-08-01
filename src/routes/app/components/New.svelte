@@ -1,5 +1,17 @@
 <script>
   import { userbase, showModal } from "../stores.js"
+  import LibLoader from './LibLoader.svelte';
+
+
+  function onLoaded() {
+    tinymce.init({
+      selector: "#title",
+      plugins: "emoticons",
+      toolbar: "emoticons",
+      toolbar_location: "bottom",
+      menubar: false
+    });
+  }
 
   let title, note;
 
@@ -27,6 +39,8 @@
 
 
 <form>
+  <LibLoader url="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" on:loaded="{onLoaded}" />
+
   <label for="title">Title</label>
   <input id="title" type="text" bind:value={title}><br>
 
