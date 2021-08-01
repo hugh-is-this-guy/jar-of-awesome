@@ -29,6 +29,7 @@
     align-items: center;
     justify-content: center;
 
+    height: auto;
     margin-bottom: 16px;
     padding-left: 8px;
     padding-right: 8px;
@@ -37,7 +38,7 @@
   }
 
   h3 {
-    font-size: 60px;
+    font-size: 40px;
 
     margin-top: 8px;
     margin-bottom: 8px;
