@@ -11,6 +11,8 @@
     }
   }
 
+  $: empty = (title === undefined || note === undefined)
+
   function createHandler(e) {
     $userbase.insertItem(newItem)
       .then(() => {
@@ -31,5 +33,7 @@
   <label for="note">Note</label>
   <textarea bind:value={note}></textarea>
 
-  <button on:click|preventDefault={createHandler} type="button">Add</button>
+  {#if !empty}
+    <button on:click|preventDefault={createHandler} type="button">Add</button>
+  {/if}
 </form>
