@@ -24,16 +24,34 @@
   }
 </script>
 
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    margin: 32px;
+  }
 
+  input, textarea {
+    padding: 8px;
+  }
+
+  input {
+    flex-grow: 0;
+  }
+
+  textarea {
+    flex-grow: 1;
+  }
+
+</style>
 
 <form>
-  <label for="title">Title</label>
-  <input id="title" type="text" bind:value={title}><br>
+  <input id="title" type="text" maxlength=5 bind:value={title} placeholder="emoji"><br>
 
-  <label for="note">Note</label>
   <textarea bind:value={note}></textarea>
 
   {#if !empty}
-    <button on:click|preventDefault={createHandler} type="button">Add</button>
+    <button on:click|preventDefault={createHandler} type="button" placeholder="awesome">Add</button>
   {/if}
 </form>
