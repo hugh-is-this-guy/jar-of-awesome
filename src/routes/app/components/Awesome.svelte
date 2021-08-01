@@ -1,10 +1,11 @@
 <script>
   import { slide } from 'svelte/transition';
 
-  import { userbase } from "../stores.js"
+  import { userbase, expandAll } from "../stores.js"
 
   export let awesome;
-  export let show = false;
+
+  let expand = false;
 
   const colours = [
     "#79CBC5",
@@ -48,8 +49,14 @@
   span {
     flex-grow: 1;
     margin-top: 0;
-    margin-bottom: 16px;
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  p {
+    margin-bottom: 16px;
   }
 
   button {
@@ -57,12 +64,16 @@
   }
 </style>
 
-<div on:click={() => show = !show} style="--background-colour: {colour}">
+<div on:click={() => expand = !expand} style="--background-colour: {colour}">
   <h3>{awesome.item.title}</h3>
-  {#if show}
+
+  {#if $expandAll || expand}
     <span transition:slide="{{ duration: 250}}">
-      {awesome.item.note}
+      <p>
+        {awesome.item.note}
+      </p>
+
+      <button on:click={bin}>🗑</button>
     </span>
-    <button on:click={bin}>🗑</button>
   {/if}
 </div>

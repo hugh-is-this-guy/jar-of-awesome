@@ -1,8 +1,8 @@
 <script>
-  import { showModal } from "../stores.js"
+  import { showModal, expandAll } from "../stores.js"
 
   import Icon from 'svelte-awesome/components/Icon.svelte'
-  import { cog, plus } from 'svelte-awesome/icons';
+  import { eye, eyeSlash, plus } from 'svelte-awesome/icons';
 </script>
 
 <style>
@@ -38,8 +38,8 @@
 </style>
 
 <div class="controls">
-  <button on:click={() => $showModal = "user"}>
-    <Icon data={cog} scale={2} />
+  <button on:click={() => $expandAll = !$expandAll}>
+    <Icon data={$expandAll ? eyeSlash : eye} scale={2} />
   </button>
 
   <button on:click={() => $showModal = "new"}>
