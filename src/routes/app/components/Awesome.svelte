@@ -33,6 +33,7 @@
     margin-bottom: 16px;
     padding-left: 8px;
     padding-right: 8px;
+    padding-bottom: 8px;
 
     background-color: var(--background-colour);
   }
@@ -44,18 +45,24 @@
     margin-bottom: 8px;
   }
 
-  p {
+  span {
     flex-grow: 1;
     margin-top: 0;
     margin-bottom: 16px;
     text-align: center;
+  }
+
+  button {
+    align-self: flex-end;
   }
 </style>
 
 <div on:click={() => show = !show} style="--background-colour: {colour}">
   <h3>{awesome.item.title}</h3>
   {#if show}
-    <p transition:slide="{{ duration: 250}}">{awesome.item.note}</p>
+    <span transition:slide="{{ duration: 250}}">
+      {awesome.item.note}
+    </span>
+    <button on:click={bin}>🗑</button>
   {/if}
-  <!-- <button on:click={bin}>🗑</button> -->
 </div>
