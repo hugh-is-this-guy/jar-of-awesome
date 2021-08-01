@@ -48,7 +48,6 @@
 
   span {
     flex-grow: 1;
-    margin-top: 0;
     text-align: center;
 
     display: flex;
@@ -56,6 +55,7 @@
   }
 
   p {
+    margin-top: 0;
     margin-bottom: 16px;
   }
 
