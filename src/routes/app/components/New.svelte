@@ -11,7 +11,9 @@
     }
   }
 
-  $: empty = (title === undefined || note === undefined)
+  $: empty = (!title || !note)
+
+
 
   function createHandler(e) {
     $userbase.insertItem(newItem)
@@ -32,7 +34,7 @@
     margin: 32px;
   }
 
-  input, textarea {
+  input, textarea, button {
     padding: 8px;
   }
 
@@ -43,6 +45,7 @@
 
   textarea {
     flex-grow: 1;
+    margin-bottom: 16px;
   }
 
 </style>
