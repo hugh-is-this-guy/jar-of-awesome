@@ -7,3 +7,5 @@ export const user = writable(false)
 export const showModal = writable(false)
 export const awesomes = writable([])
 export const expandAll = writable(false)
+
+export const tab = writable("done")

@@ -6,6 +6,7 @@
   import Awesome from "./Awesome.svelte"
   import Controls from "./Controls.svelte"
   import Modal from "./Modal.svelte"
+  import Tabs from "./Tabs.svelte"
 
   let add = false;
 
@@ -40,6 +41,8 @@
     padding: 8px;
   }
 </style>
+
+<Tabs />
 
 <section>
   <div class="column">

@@ -13,8 +13,6 @@
 
   $: empty = (!title || !note)
 
-
-
   function createHandler(e) {
     $userbase.insertItem(newItem)
       .then(() => {
