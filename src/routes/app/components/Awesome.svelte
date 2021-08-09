@@ -76,8 +76,7 @@
     <span
       transition:slide="{{ duration: 250}}"
       use:longpress
-      on:longpress="{() => pressed = true}"
-      on:mouseenter="{() => pressed = false}">
+      on:longpress="{() => pressed = !pressed}">
 
       <p>
         {awesome.item.note}
