@@ -38,6 +38,7 @@
 
   input {
     flex-grow: 0;
+    margin-bottom: 16px;
   }
 
   textarea {
@@ -47,7 +48,7 @@
 </style>
 
 <form>
-  <input id="title" type="text" maxlength=5 bind:value={title} placeholder="emoji"><br>
+  <input id="title" type="text" maxlength=5 bind:value={title} placeholder="emoji">
 
   <textarea bind:value={note}></textarea>
 
