@@ -27,7 +27,7 @@
   div {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
 
     height: auto;
@@ -41,6 +41,7 @@
 
   h3 {
     font-size: 40px;
+    text-align: center;
 
     margin-top: 8px;
     margin-bottom: 8px;
