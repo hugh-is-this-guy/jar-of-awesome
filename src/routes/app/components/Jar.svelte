@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte"
 
-  import { showModal, awesomes } from "../stores.js"
+  import { showModal, awesomes, expandAll } from "../stores.js"
 
   import Awesome from "./Awesome.svelte"
   import Controls from "./Controls.svelte"

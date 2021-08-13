@@ -2,12 +2,12 @@
   import { slide } from 'svelte/transition';
 
   import { userbase, expandAll } from "../stores.js"
-  import { longpress } from "../longpress.js"
 
   export let awesome;
 
   let expand = false;
-  let pressed = false;
+
+  $: expand = $expandAll;
 
   const colours = [
     "#79CBC5",
@@ -17,9 +17,6 @@
   ]
 
   $: colour = colours[awesome.index % colours.length]
-  $: if (!$expandAll && !expand) {
-    pressed = false;
-  }
 
   function bin() {
     $userbase
@@ -29,7 +26,9 @@
 </script>
 
 <style>
-  div {
+  .awesome {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -39,8 +38,20 @@
     padding-left: 8px;
     padding-right: 8px;
     padding-bottom: 8px;
+    margin: 4px;
+    border-radius: 8px;
 
     background-color: var(--background-colour);
+
+    transition: height 0.2s ease-out;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   h3 {
@@ -69,22 +80,21 @@
   }
 </style>
 
-<div on:click={() => expand = !expand} style="--background-colour: {colour}">
+<div class="awesome"
+  style="--background-colour: {colour}">
+
+  <div class="overlay"
+    on:click={() => expand = !expand}>
+  </div>
+
   <h3>{awesome.item.title}</h3>
 
-  {#if $expandAll || expand}
-    <span
-      transition:slide="{{ duration: 250}}"
-      use:longpress
-      on:longpress="{() => pressed = !pressed}">
+  {#if expand}
+    <span transition:slide="{{ duration: 250}}">
 
       <p>
         {awesome.item.note}
       </p>
-
-      {#if $expandAll && pressed}
-        <button on:click={bin}>🗑</button>
-      {/if}
     </span>
   {/if}
 </div>
