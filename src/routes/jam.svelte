@@ -1,5 +1,5 @@
 <script>
-	import Loader from "./components/Loader.svelte"
+	import Loader from "./app/components/Loader.svelte"
 </script>
 
 <svelte:head>
