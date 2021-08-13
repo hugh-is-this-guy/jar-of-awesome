@@ -83,8 +83,7 @@
 
 <div class="awesome"
   style="--background-colour: {colour}"
-  transition:fly={{ delay: 50 * awesome.index, y: 100 }}
-  >
+  transition:fly={{ delay: 50 * awesome.index, y: 100 }}>
 
   <h3>{awesome.item.title}</h3>
 
