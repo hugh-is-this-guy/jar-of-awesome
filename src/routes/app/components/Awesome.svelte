@@ -10,10 +10,12 @@
   $: expand = $expandAll;
 
   const colours = [
+
     "#79CBC5",
     "#FFFF97",
     "#FBAE4A",
     "#F3858E",
+
   ]
 
   $: colour = colours[awesome.index % colours.length]
@@ -38,12 +40,10 @@
     padding-left: 8px;
     padding-right: 8px;
     padding-bottom: 8px;
-    margin: 4px;
-    border-radius: 8px;
+    margin: 2px;
+    border-radius: 4px;
 
     background-color: var(--background-colour);
-
-    transition: height 0.2s ease-out;
   }
 
   .overlay {
@@ -58,8 +58,8 @@
     font-size: 40px;
     text-align: center;
 
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
   }
 
   span {
@@ -71,8 +71,9 @@
   }
 
   p {
+    color: #000;
     margin-top: 0;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
   }
 
   button {

@@ -31,7 +31,7 @@
 
     border-radius: 50%;
     padding: 0;
-    border: none;
+    border: solid black 3px;
     background: none;
     background-color: white;
   }
