@@ -19,6 +19,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    background-color: rgba(51, 55, 69, 0.8)
   }
 
   button {
@@ -37,7 +39,7 @@
   }
 </style>
 
-<div class="controls">
+<div>
   <button on:click={() => $expandAll = !$expandAll}>
     <Icon data={$expandAll ? eyeSlash : eye} scale={2} />
   </button>

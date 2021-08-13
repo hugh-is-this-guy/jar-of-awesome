@@ -1,13 +1,17 @@
 <script>
   import { slide, fly } from 'svelte/transition';
 
-  import { userbase, expandAll } from "../stores.js"
+  import Icon from 'svelte-awesome/components/Icon.svelte'
+  import { ellipsisV, trash, pencil } from 'svelte-awesome/icons';
+
+  import { userbase, expandAll, showModal, title, note, itemId } from "../stores.js"
 
   export let awesome;
 
   let expand = false;
-
   $: expand = $expandAll;
+
+  let menu = false;
 
   const colours = [
 
@@ -24,6 +28,22 @@
     $userbase
       .deleteItem({ databaseName: 'awesomes', itemId: awesome.itemId })
       .catch((e) => log(e))
+  }
+
+  function edit() {
+    $title = awesome.item.title;
+    $note = awesome.item.note;
+    $itemId = awesome.itemId;
+
+    $showModal = true;
+  }
+
+  function toggleMenu() {
+    menu = !menu;
+
+    setTimeout(() => {
+      menu = false;
+    }, 3000)
   }
 </script>
 
@@ -46,14 +66,6 @@
     background-color: var(--background-colour);
   }
 
-  .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-
   h3 {
     font-size: 40px;
     text-align: center;
@@ -62,7 +74,7 @@
     margin-bottom: 4px;
   }
 
-  span {
+  .description {
     flex-grow: 1;
     text-align: center;
 
@@ -73,30 +85,69 @@
   p {
     color: #000;
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 24px;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
   }
 
   button {
-    align-self: flex-end;
+    margin: 4px;
+    border: none;
+    background: none;
   }
+
 </style>
 
 <div class="awesome"
   style="--background-colour: {colour}"
-  transition:fly={{ delay: 50 * awesome.index, y: 100 }}>
+  in:fly={{ delay: 50 * awesome.index, y: 100 }}
+  out:fly={{y: 100}}>
 
   <h3>{awesome.item.title}</h3>
 
   {#if expand}
-    <span transition:slide="{{ duration: 250}}">
-
+    <div class="description" transition:slide="{{ duration: 250}}">
       <p>
         {awesome.item.note}
       </p>
-    </span>
+    </div>
   {/if}
 
   <div class="overlay"
     on:click={() => expand = !expand}>
+
+      <div class="controls">
+        {#if menu && expand}
+          <button on:click|stopPropagation={bin} transition:fly={{x: 10}}>
+            <Icon data={trash} />
+          </button>
+          <button on:click|stopPropagation={edit} transition:fly={{x: 10}}>
+            <Icon data={pencil} />
+          </button>
+        {/if}
+
+        {#if expand}
+          <button on:click|stopPropagation={toggleMenu}>
+            <Icon data={ellipsisV} />
+          </button>
+        {/if}
+      </div>
   </div>
+
 </div>

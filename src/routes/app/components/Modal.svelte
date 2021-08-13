@@ -3,7 +3,7 @@
 
   import { showModal } from "../stores.js"
 
-  import New from "./New.svelte"
+  import Form from "./Form.svelte"
   import Icon from 'svelte-awesome/components/Icon.svelte'
   import { times } from 'svelte-awesome/icons';
 </script>
@@ -13,6 +13,10 @@
     position: absolute;
     top: 0;
     left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     width: 100vw;
     height: 100vh;
@@ -42,7 +46,7 @@
 
 {#if $showModal}
   <div transition:scale={{duration: 200}}>
-    <New />
+    <Form />
     <button on:click={() => $showModal = false}>
       <Icon data={times} scale={2} />
     </button>

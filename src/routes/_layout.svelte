@@ -4,8 +4,7 @@
 
 <style>
 	main {
-		position: relative;
-		max-width: 56em;
+		max-width: 44em;
 		padding: 1em;
 		margin: 0 auto;
 		box-sizing: border-box;
