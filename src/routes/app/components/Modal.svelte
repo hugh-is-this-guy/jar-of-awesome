@@ -1,4 +1,6 @@
 <script>
+  import { fade } from "svelte/transition"
+
   import { showModal } from "../stores.js"
 
   import New from "./New.svelte"
@@ -15,7 +17,7 @@
     width: 100vw;
     height: 100vh;
 
-    background-color: white;
+    background-color: rgba(51, 55, 68, 0.9);
   }
 
   button {
@@ -28,7 +30,7 @@
 
     border-radius: 50%;
     padding: 0;
-    border: none;
+    border: solid black 3px;
     background: none;
     background-color: white;
 
@@ -39,7 +41,7 @@
 </style>
 
 {#if $showModal}
-  <div>
+  <div transition:fade={{duration: 100}}>
     <New />
     <button on:click={() => $showModal = false}>
       <Icon data={times} scale={2} />

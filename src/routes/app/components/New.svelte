@@ -30,6 +30,7 @@
   form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     height: 80%;
     margin: 32px;
   }
@@ -39,13 +40,14 @@
   }
 
   input {
-    flex-grow: 0;
     margin-bottom: 16px;
   }
 
   textarea {
-    flex-grow: 1;
     margin-bottom: 16px;
+    height: 80px;
+
+    resize: none;
   }
 
 </style>
@@ -53,9 +55,13 @@
 <form>
   <input id="title" type="text" maxlength=5 bind:value={title} placeholder="emoji">
 
-  <textarea bind:value={note}></textarea>
+  <textarea bind:value={note} placeholder="description"></textarea>
 
-  {#if !empty}
-    <button on:click|preventDefault={createHandler} type="button" placeholder="awesome">Add</button>
-  {/if}
+  <button
+    on:click|preventDefault={createHandler}
+    type="button"
+    placeholder="awesome"
+    disabled={empty}>
+    Add
+  </button>
 </form>
