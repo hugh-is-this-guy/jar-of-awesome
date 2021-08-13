@@ -3,6 +3,7 @@
 	import { userbase, authPromise, user } from "./stores.js"
 	import Jar from "./components/Jar.svelte"
 	import Auth from "./components/Auth.svelte"
+	import Loader from "./components/Loader.svelte"
 
 	onMount(() => {
 	 	$userbase = window.userbase;
@@ -25,7 +26,7 @@
 
 
 {#await $authPromise}
-	<p>Loading...</p>
+	<Loader />
 
 {:then _}
 	{#if $user}
