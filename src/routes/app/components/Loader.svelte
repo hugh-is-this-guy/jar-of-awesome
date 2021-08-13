@@ -20,9 +20,11 @@
   .lid {
     width: 100px;
     height: 20px;
+
     border-radius: 8px;
-    background: #fff;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
+
+    background: rgb(82,81,81);
+    background: linear-gradient(90deg, rgba(82,81,81,1) 0%, rgba(179,179,179,1) 50%, rgba(82,81,81,1) 100%);
   }
 
   .jar {
@@ -56,7 +58,6 @@
 }
 
 .jam::before {
-
   border-radius: 45%;
   animation: animate 5s linear infinite;
 }
