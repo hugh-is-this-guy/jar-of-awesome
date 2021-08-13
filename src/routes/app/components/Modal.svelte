@@ -1,5 +1,5 @@
 <script>
-  import { fade } from "svelte/transition"
+  import { scale } from "svelte/transition"
 
   import { showModal } from "../stores.js"
 
@@ -41,7 +41,7 @@
 </style>
 
 {#if $showModal}
-  <div transition:fade={{duration: 100}}>
+  <div transition:scale={{duration: 200}}>
     <New />
     <button on:click={() => $showModal = false}>
       <Icon data={times} scale={2} />

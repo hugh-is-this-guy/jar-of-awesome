@@ -1,5 +1,5 @@
 <script>
-  import { slide } from 'svelte/transition';
+  import { slide, fly } from 'svelte/transition';
 
   import { userbase, expandAll } from "../stores.js"
 
@@ -82,7 +82,9 @@
 </style>
 
 <div class="awesome"
-  style="--background-colour: {colour}">
+  style="--background-colour: {colour}"
+  transition:fly={{ delay: 50 * awesome.index, y: 100 }}
+  >
 
   <h3>{awesome.item.title}</h3>
 
