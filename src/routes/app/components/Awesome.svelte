@@ -84,10 +84,6 @@
 <div class="awesome"
   style="--background-colour: {colour}">
 
-  <div class="overlay"
-    on:click={() => expand = !expand}>
-  </div>
-
   <h3>{awesome.item.title}</h3>
 
   {#if expand}
@@ -98,4 +94,8 @@
       </p>
     </span>
   {/if}
+
+  <div class="overlay"
+    on:click={() => expand = !expand}>
+  </div>
 </div>
