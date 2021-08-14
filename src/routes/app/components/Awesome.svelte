@@ -83,9 +83,10 @@
   }
 
   p {
-    color: #000;
     margin-top: 0;
     margin-bottom: 24px;
+
+    color: #000;
   }
 
   .overlay {

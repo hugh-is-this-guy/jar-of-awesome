@@ -16,11 +16,56 @@
   }
 </script>
 
-<form>
-  <label for="username">Username</label>
-  <input id="username" type="text" bind:value={username}><br>
-  <label for="password">Password</label>
-  <input id="password" type="password" bind:value={password}><br>
-  <button on:click={signIn} type="button">Sign in</button>
-  <button on:click={signUp} type="button">Sign up</button>
-</form>
+<style>
+  .container {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  form {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 80%;
+    max-width: 24em;
+    margin: 32px;
+  }
+
+  input {
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: row;
+  }
+
+  button {
+    padding: 8px;
+    flex-grow: 1;
+  }
+</style>
+
+<div class="container">
+  <form>
+  <input id="username" type="email" bind:value={username} placeholder="email">
+  <input id="password" type="password" bind:value={password} placeholder="password">
+
+  <div class="controls">
+    <button on:click={signIn} type="submit">Sign in</button>
+    <button on:click={signUp} type="button">Sign up</button>
+  </div>
+  </form>
+</div>

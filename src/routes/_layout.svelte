@@ -5,7 +5,7 @@
 <style>
 	main {
 		max-width: 44em;
-		padding: 1em;
+		padding: 4px;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
