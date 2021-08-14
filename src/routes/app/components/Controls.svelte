@@ -12,7 +12,7 @@
     left: 0;
 
     width: 100%;
-    padding: 16px;
+    padding: 8px;
     box-sizing: border-box;
 
     display: flex;
@@ -36,6 +36,12 @@
     border: solid black 3px;
     background: none;
     background-color: white;
+  }
+
+  @media (min-width: 480px) {
+    .container {
+      padding: 16px;
+    }
   }
 </style>
 
