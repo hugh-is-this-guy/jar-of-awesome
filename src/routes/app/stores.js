@@ -10,4 +10,6 @@ export const note = writable("")
 export const itemId = writable("")
 
 export const awesomes = writable([])
+
+export const layout = writable("collumns")
 export const expandAll = writable(true)
