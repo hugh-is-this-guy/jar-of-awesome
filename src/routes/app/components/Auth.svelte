@@ -56,6 +56,14 @@
     padding: 8px;
     flex-grow: 1;
   }
+
+  .login {
+    margin-right: 4px;
+  }
+
+  .signup {
+    margin-left: 4px;
+  }
 </style>
 
 <div class="container">
@@ -64,8 +72,8 @@
   <input id="password" type="password" bind:value={password} placeholder="password">
 
   <div class="controls">
-    <button on:click={signIn} type="submit">Sign in</button>
-    <button on:click={signUp} type="button">Sign up</button>
+    <button class="login" on:click={signIn} type="submit">Sign in</button>
+    <button class="signup" on:click={signUp} type="button">Sign up</button>
   </div>
   </form>
 </div>
