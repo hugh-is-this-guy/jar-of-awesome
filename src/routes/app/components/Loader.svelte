@@ -48,26 +48,39 @@
 
 .jam::before {
   content: '';
-  width: 400px;
-  height: 400px;
+
   position: absolute;
   top: -50%;
   left: 50%;
-  transform: translate(-50%, -75%);
-  background: #fff;
-}
 
-.jam::before {
+  width: 400px;
+  height: 400px;
+  background: #fff;
   border-radius: 45%;
-  animation: animate 5s linear infinite;
+
+  transform: translate(-50%, -75%);
+  animation: animate 7s linear infinite;
 }
 
 @keyframes animate {
   0% {
-    transform: translate(-50%, -75%) rotate(0deg);
+    transform: translate(-50%, -60%) rotate(0deg);
   }
+
+  25% {
+    transform: translate(-50%, -65%) rotate(90deg);
+  }
+
+  50% {
+    transform: translate(-50%, -70%) rotate(180deg);
+  }
+
+  75% {
+    transform: translate(-50%, -80%) rotate(270deg);
+  }
+
   100% {
-    transform: translate(-50%, -75%) rotate(360deg);
+    transform: translate(-50%, -60%) rotate(360deg);
   }
 }
 
