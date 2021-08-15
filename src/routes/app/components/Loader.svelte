@@ -64,23 +64,11 @@
 
 @keyframes animate {
   0% {
-    transform: translate(-50%, -60%) rotate(0deg);
-  }
-
-  25% {
-    transform: translate(-50%, -65%) rotate(90deg);
-  }
-
-  50% {
-    transform: translate(-50%, -70%) rotate(180deg);
-  }
-
-  75% {
-    transform: translate(-50%, -80%) rotate(270deg);
+    transform: translate(-50%, -75%) rotate(0deg);
   }
 
   100% {
-    transform: translate(-50%, -60%) rotate(360deg);
+    transform: translate(-50%, -75%) rotate(360deg);
   }
 }
 
