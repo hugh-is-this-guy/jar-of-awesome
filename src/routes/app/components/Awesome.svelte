@@ -70,8 +70,8 @@
     font-size: 40px;
     text-align: center;
 
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 
   .description {
