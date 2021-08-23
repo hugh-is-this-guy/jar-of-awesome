@@ -39,7 +39,7 @@
   }
 
   @media (min-width: 480px) {
-    .container {
+    div {
       padding: 16px;
     }
   }
