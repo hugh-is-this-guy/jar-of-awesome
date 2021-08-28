@@ -4,7 +4,7 @@
   let username, password;
 
   function signUp() {
-    $authPromise = $userbase.signUp({ username, password, rememberMe: 'local', sessionLength: 8760 })
+    $authPromise = $userbase.signUp({ username, password, email: username, rememberMe: 'local', sessionLength: 8760 })
       .then((u) => $user = u)
       .catch((e) => console.log(e))
   }
