@@ -6,5 +6,4 @@
 	<title>Jam of Awesome</title>
 </svelte:head>
 
-
 <Loader />
