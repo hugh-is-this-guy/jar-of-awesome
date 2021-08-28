@@ -1,10 +1,10 @@
 {
-	"background_color": "#ffffff",
-	"theme_color": "#333333",
-	"name": "TODO",
-	"short_name": "TODO",
+	"background_color": "#333745",
+	"theme_color": "#771B49",
+	"name": "Jar of Awesome",
+	"short_name": "Jar of Awesome",
 	"display": "minimal-ui",
-	"start_url": "/",
+	"start_url": "/app",
 	"icons": [
 		{
 			"src": "logo-192.png",
