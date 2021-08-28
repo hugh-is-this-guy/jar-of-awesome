@@ -2,9 +2,9 @@
   import { slide, fly } from 'svelte/transition';
 
   import Icon from 'svelte-awesome/components/Icon.svelte'
-  import { ellipsisV, trash, pencil } from 'svelte-awesome/icons';
+  import { ellipsisV, trash, pencil, check } from 'svelte-awesome/icons';
 
-  import { userbase, expandAll, showModal, title, note, itemId } from "../stores.js"
+  import { userbase, expandAll, showModal, list, title, note, itemId } from "../stores.js"
 
   export let awesome;
 
@@ -27,6 +27,18 @@
   function bin() {
     $userbase
       .deleteItem({ databaseName: 'awesomes', itemId: awesome.itemId })
+      .catch((e) => log(e))
+  }
+
+  function done() {
+    awesome.item.list = "done";
+
+    $userbase
+      .updateItem({
+        databaseName: "awesomes",
+        item: awesome.item,
+        itemId: awesome.itemId
+      })
       .catch((e) => log(e))
   }
 
@@ -141,6 +153,11 @@
           <button on:click|stopPropagation={edit} transition:fly={{x: 10}}>
             <Icon data={pencil} />
           </button>
+          {#if $list === "todo"}
+            <button on:click|stopPropagation={done} transition:fly={{x: 10}}>
+              <Icon data={check} />
+            </button>
+          {/if}
         {/if}
 
         {#if expand}
