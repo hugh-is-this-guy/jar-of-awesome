@@ -23,13 +23,13 @@
 
     border-radius: 8px;
 
-    background: rgb(82,81,81);
     background: linear-gradient(90deg, rgba(82,81,81,1) 0%, rgba(179,179,179,1) 50%, rgba(82,81,81,1) 100%);
   }
 
   .jar {
     border-radius: 16px;
     position: relative;
+    top: -2px;
     width: 100px;
     height: 140px;
     overflow: hidden;
@@ -43,7 +43,6 @@
     height: 140px;
     background: #a50b5e;
     box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
-    transition: .5s;
   }
 
 .jam::before {
