@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte"
 
-  import { showModal, awesomes, expandAll } from "../stores.js"
+  import { showModal, awesomes, expandAll, list } from "../stores.js"
 
   import Awesome from "./Awesome.svelte"
   import Controls from "./Controls.svelte"
@@ -9,12 +9,34 @@
 
   let add = false;
 
+  let done = [];
+  let todo = [];
+
+  $: if ($list === "done") {
+    $awesomes = done;
+  } else {
+    $awesomes = todo;
+  }
+
   $: ones  = $awesomes.filter((_, i) => (i % 3) === 0)
   $: twos = $awesomes.filter((_, i) => (i % 3) === 1)
   $: threes = $awesomes.filter((_, i) => (i % 3) === 2)
 
   function changeHandler(items) {
-    $awesomes = items.map((item, i) => { return { ...item, index: i }} )
+    let a = [];
+    let b = [];
+
+    items.forEach((item, i) => {
+      console.log(item)
+      if (item.item.list === "todo") {
+        a.push({ ...item, index: i })
+      } else {
+        b.push({ ...item, index: i })
+      }
+    })
+
+    todo = a;
+    done = b;
   }
 
   onMount(() => {

@@ -1,11 +1,12 @@
 <script>
-  import { userbase, showModal, title, note, itemId } from "../stores.js"
+  import { userbase, showModal, list, title, note, itemId } from "../stores.js"
 
   $: item = {
     databaseName: "awesomes",
     item: {
       title: $title,
-      note: $note
+      note: $note,
+      list: $list
     },
     ...($itemId && { itemId: $itemId }),
   }

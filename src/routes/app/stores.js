@@ -10,4 +10,7 @@ export const note = writable("")
 export const itemId = writable("")
 
 export const awesomes = writable([])
+export const todos = writable([])
 export const expandAll = writable(true)
+
+export const list = writable("done")
