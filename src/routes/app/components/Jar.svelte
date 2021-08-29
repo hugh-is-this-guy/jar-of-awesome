@@ -26,12 +26,11 @@
     let a = [];
     let b = [];
 
-    items.forEach((item, i) => {
-      console.log(item)
+    items.forEach((item) => {
       if (item.item.list === "todo") {
-        a.push({ ...item, index: i })
+        a.push({ ...item, index: a.length })
       } else {
-        b.push({ ...item, index: i })
+        b.push({ ...item, index: b.length })
       }
     })
 
