@@ -3,7 +3,7 @@
 	"theme_color": "#771B49",
 	"name": "Jar of Awesome",
 	"short_name": "Jar of Awesome",
-	"display": "minimal-ui",
+	"display": "standalone",
 	"start_url": "/app",
 	"icons": [
 		{
