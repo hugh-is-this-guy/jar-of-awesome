@@ -1,5 +1,5 @@
 <script>
-  import { slide, fly } from 'svelte/transition';
+  import { slide, fly, fade } from 'svelte/transition';
 
   import Icon from 'svelte-awesome/components/Icon.svelte'
   import { ellipsisV, trash, pencil, check } from 'svelte-awesome/icons';
@@ -129,13 +129,12 @@
 
 <div class="awesome"
   style="--background-colour: {colour}"
-  in:fly={{ delay: 50 * awesome.index, y: 100 }}
-  out:fly={{y: 100}}>
+  in:fly={{ delay: 50 * awesome.index, y: 100 }}>
 
   <h3>{awesome.item.title}</h3>
 
   {#if expand}
-    <div class="description" transition:slide="{{ duration: 250}}">
+    <div class="description" transition:slide|local="{{ duration: 250}}">
       <p>
         {awesome.item.note}
       </p>

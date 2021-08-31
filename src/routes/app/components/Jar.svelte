@@ -64,19 +64,19 @@
 
 <section>
   <div class="column">
-    {#each ones as awesome}
+    {#each ones as awesome (awesome.itemId)}
       <Awesome {awesome} />
     {/each}
   </div>
 
   <div class="column">
-    {#each twos as awesome}
+    {#each twos as awesome (awesome.itemId)}
       <Awesome {awesome} />
     {/each}
   </div>
 
   <div class="column">
-    {#each threes as awesome}
+    {#each threes as awesome (awesome.itemId)}
       <Awesome {awesome} />
     {/each}
   </div>
