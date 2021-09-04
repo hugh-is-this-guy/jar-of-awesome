@@ -14,7 +14,7 @@
 	})
 
 	function signOut() {
-		userbase.signOut()
+		$userbase.signOut()
 			.then(() => $user = {})
       .catch((e) => console.log(e))
 	}

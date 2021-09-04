@@ -1,7 +1,8 @@
 <script>
   import { onMount } from "svelte"
 
-  import { showModal, awesomes, expandAll, list } from "../stores.js"
+  import { showModal, awesomes, expandAll, list, userbase, isNewUser } from "../stores.js"
+  import addIntroItems from "../introSetup.js"
 
   import Awesome from "./Awesome.svelte"
   import Controls from "./Controls.svelte"
@@ -39,7 +40,13 @@
   }
 
   onMount(() => {
-    userbase.openDatabase({ databaseName: 'awesomes', changeHandler })
+    $userbase.openDatabase({ databaseName: 'awesomes', changeHandler })
+      .then(() => {
+        if ($isNewUser) {
+          addIntroItems($userbase)
+          $isNewUser = false
+        }
+      })
       .catch((e) => console.log(e))
   })
 

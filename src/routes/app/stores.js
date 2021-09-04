@@ -3,6 +3,7 @@ import { writable } from "svelte/store"
 export const userbase = writable({})
 export const authPromise = writable(Promise.resolve({}))
 export const user = writable(false)
+export const isNewUser = writable(false)
 
 export const showModal = writable(false)
 export const title = writable("")

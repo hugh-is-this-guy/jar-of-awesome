@@ -1,11 +1,14 @@
 <script>
-  import { userbase, authPromise, user } from "../stores.js"
+  import { userbase, authPromise, user, isNewUser } from "../stores.js"
 
   let username, password;
 
   function signUp() {
     $authPromise = $userbase.signUp({ username, password, email: username, rememberMe: 'local', sessionLength: 8760 })
-      .then((u) => $user = u)
+      .then((u) => {
+        $user = u
+        $isNewUser = true
+      })
       .catch((e) => console.log(e))
   }
 
