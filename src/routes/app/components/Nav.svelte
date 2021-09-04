@@ -49,7 +49,8 @@
 
   div {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 2px);
+    right: 2px;
     z-index: 2;
     background-color: #333745;
     border-bottom: 1px solid white;
