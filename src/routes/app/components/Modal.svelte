@@ -38,9 +38,16 @@
     background: none;
     background-color: white;
 
-    position: absolute;
-    bottom: 16px;
-    right: 16px;
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+  }
+
+  @media (min-width: 480px) {
+    button {
+      bottom: 16px;
+      right: 16px;
+    }
   }
 </style>
 
