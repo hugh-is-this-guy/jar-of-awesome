@@ -13,9 +13,9 @@
   let todo = [];
 
   $: if ($list === "done") {
-    $awesomes = done;
+    $awesomes = done.reverse();
   } else {
-    $awesomes = todo;
+    $awesomes = todo.reverse();
   }
 
   $: ones  = $awesomes.filter((_, i) => (i % 3) === 0)

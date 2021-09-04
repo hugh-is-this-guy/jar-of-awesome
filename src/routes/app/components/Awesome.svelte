@@ -1,5 +1,6 @@
 <script>
-  import { slide, fly, fade } from 'svelte/transition';
+  import { slide, fly, fade, crossfade } from 'svelte/transition';
+  import { quintOut } from 'svelte/easing';
 
   import Icon from 'svelte-awesome/components/Icon.svelte'
   import { ellipsisV, trash, pencil, check } from 'svelte-awesome/icons';
@@ -57,6 +58,24 @@
       menu = false;
     }, 3000)
   }
+
+  const [send, receive] = crossfade({
+    duration: d => Math.sqrt(d * 200),
+
+    fallback(node, params) {
+      const style = getComputedStyle(node);
+      const transform = style.transform === 'none' ? '' : style.transform;
+
+      return {
+        duration: 600,
+        easing: quintOut,
+        css: t => `
+          transform: ${transform} scale(${t});
+          opacity: ${t}
+        `
+      };
+    }
+  });
 </script>
 
 <style>
@@ -127,9 +146,12 @@
 
 </style>
 
-<div class="awesome"
+<div
+  class="awesome"
   style="--background-colour: {colour}"
-  in:fly={{ delay: 50 * awesome.index, y: 100 }}>
+  in:receive="{{key: awesome.itemId}}"
+  out:send="{{key: awesome.itemId}}"
+  >
 
   <h3>{awesome.item.title}</h3>
 
