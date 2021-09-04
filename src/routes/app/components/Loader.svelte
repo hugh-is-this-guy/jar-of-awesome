@@ -33,6 +33,7 @@
     width: 100px;
     height: 140px;
     overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
   }
 
   .jam {
@@ -59,6 +60,7 @@
 
   transform: translate(-50%, -75%);
   animation: animate 7s linear infinite;
+  -webkit-animation-delay: 5ms;
 }
 
 @keyframes animate {
