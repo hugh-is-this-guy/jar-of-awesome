@@ -7,6 +7,7 @@
   import Awesome from "./Awesome.svelte"
   import Controls from "./Controls.svelte"
   import Modal from "./Modal.svelte"
+  import Nav from "./Nav.svelte"
 
   let add = false;
 
@@ -69,6 +70,7 @@
   }
 </style>
 
+<Nav />
 <section>
   <div class="column">
     {#each ones as awesome (awesome.itemId)}

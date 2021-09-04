@@ -12,12 +12,6 @@
 			.then((res) => $user = res.user)
 			.catch((e) => console.log(e))
 	})
-
-	function signOut() {
-		$userbase.signOut()
-			.then(() => $user = {})
-      .catch((e) => console.log(e))
-	}
 </script>
 
 <svelte:head>
